@@ -1,0 +1,83 @@
+<!-- users/login.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<br class="mt-0 mb-4">
+<div class="container">
+    <div class="global-container">
+        <div class="card login-form">
+            <div class="card-body">
+                <h3 class="card-title text-center">Log in to Foodanic</h3>
+                <div class="card-text">
+                    <form method="POST">{% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" class="form-control form-control-sm" id="username" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <a href="{% url 'password_reset' %}" style="float:right;font-size:12px;text-decoration:none;">Forgot password?</a>
+                            <input type="password" name="password" class="form-control form-control-sm" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        
+                        <div class="sign-up">
+                            Don't have an account? <a href="{% url 'signup' %}" style="text-decoration:none;">Create One</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+html,body { 
+	height: 100%; 
+}
+
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* background-color: #f5f5f5; */
+}
+
+form{
+	padding-top: 10px;
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.card-title{ font-weight:300; }
+
+.btn{
+	font-size: 14px;
+	margin-top:20px;
+}
+
+
+.login-form{ 
+	width:330px;
+	margin:20px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+.alert{
+	margin-bottom:-30px;
+	font-size: 13px;
+	margin-top:20px;
+}
+</style>
+
+{% endblock %}

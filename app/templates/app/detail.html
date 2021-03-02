@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br class="mt-0 mb-4">
+<div class="container">
+    <h1 class="my-4">{{ recipe.name|capfirst }}  {% if user.is_authenticated and request.user == event_host %}   <a href="{% url 'update' event_id %}"><i class="far fa-edit"></i></a> {% endif %}
+        <!-- <small>Secondary Text</small> -->
+    </h1>
+    <p></p>
+    <div class="row">
+      
+        <div class="col-md-8" style="margin-right: -15%;">
+            <img class="img-fluid" src="https://www.pymnts.com/wp-content/uploads/2018/12/food-pop-ups-retail-planning-revenue.jpg" style="width: 75%;" alt="">
+        </div>
+      
+        <div class="col-md-4">
+          <div class="row">
+              <div class="col-md">
+                <h3 class="my-3">About</h3>
+                <p>{{ event_description }}</p>
+                <h3 class="my-3">Event Details</h3>
+                <ul>
+                  <li><b>Date:</b> {{ event_date|date:"M. d, Y" }}</li>
+                  <li><b>Time:</b> {{ event_time }} (PST)</li>
+                  <!-- <li><b>Host:</b> {{ event_host.fname|capfirst }}</li> -->
+                  <li><b>Location:</b> {{ event_address }}</li>
+                </ul>
+              </div>
+              <div class="col-md">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25219.290532839426!2d-122.4549840464445!3d37.803833654249196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580d79ae5a51b%3A0x3c50fe8f3930832!2sMarina%20District%2C%20San%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1611703934002!5m2!1sen!2sus" width="1200" height="450" frameborder="0" style="width: 400px; height: 400px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="my-4">Similar Events</h3>
+        <div class="row">
+          {% for item in local_events %}
+            <div class="col-md-3 col-sm-6 mb-4">
+                <!-- <div class="card">
+                    <a href="{% url 'detail' item.id %}">
+                        <img class="card-img-top" src="https://goodfoodpittsburgh.com/wp-content/uploads/2019/07/66300498_2301317753238702_1164953606378487808_o-1024x1024.jpg" alt="">
+                    </a>
+                    
+                      <div class="box">{{ item.event_date|date:"M d" }}</div>
+                    
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <a href="{% url 'detail' item.id %}" class="alink">{{ item.event_name }}</a>
+                      </h4>
+                      <h5>$9.99</h5>
+                      <p class="card-text">{{ item.event_description|truncatechars:25 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <i><b>Location:</b></i> {{ item.event_address }}
+                    </div>
+                  </div> -->
+              <div class="card">
+                <div class="box">{{ item.event_date|date:"M d" }}</div>
+                <a href="{% url 'detail' item.id %}" class="alink">
+                  <img class="card-img-top img-fluid" src="https://cdn.vox-cdn.com/thumbor/AaD7DvQ5BE9Ct7oVT908se7C4y0=/0x0:1440x967/1200x800/filters:focal(605x369:835x599)/cdn.vox-cdn.com/uploads/chorus_image/image/66330578/becksstpats.21.jpg" alt="">
+                </a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="{% url 'detail' item.id %}" class="alink">{{ item.event_name }}</a>
+                  </h4>
+                </div>
+              </div>
+              
+            </div>
+          {% endfor %}
+
+{% endblock %}   
