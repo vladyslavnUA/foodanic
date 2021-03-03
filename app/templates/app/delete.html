@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<br class="mt-0 mb-4">
+<div class="container">
+    <h4>You have successfully deleted the {{name|capfirst}} Recipe</h4>
+    <br><br>
+    <div class="row">
+        <div class="col"><a href="{% url 'home' %}"><button class="btn btn-primary">Back Home</button></a></div>
+        <div class="col"><a href="{% url 'create' %}"><button class="btn btn-success">New Recipe</button></a></div>
+    </div>
+</div>
+{% endblock %}

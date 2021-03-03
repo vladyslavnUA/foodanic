@@ -8,7 +8,8 @@ urlpatterns = [
     path('detail/<int:id>/', detail, name='detail'),
     path('new/', create, name='create'),
     path('update/<int:id>/', update, name='update'),
-    path('delete/', delete, name='delete'),
+    path('delete/<int:id>/', delete, name='delete'),
+    path('load/', load, name='load'),
 ]
 
 if settings.DEBUG:
