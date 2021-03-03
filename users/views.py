@@ -13,7 +13,7 @@ def signup(request):
             user = request.user
             print('made it', username, password, user)
             if user is not None:
-                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                # login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 print('got here')
                 return redirect('login')
             else:
