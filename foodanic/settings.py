@@ -25,7 +25,7 @@ SECRET_KEY = '#ynd#qlm#yb&%&2syg)ywlo1p!ptqp)#dp7esus@*zo_2yhs(4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['foodanic.herokuapp.com']
 
 
 # Application definition
