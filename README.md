@@ -19,7 +19,6 @@ source env/bin/activate
 pip install -r requirements.txt
 
 # run migrations to create db
-python manage.py makemigrations
 python manage.py migrate
 
 # run the app
