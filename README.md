@@ -1,6 +1,6 @@
 # Foodanic Recipes 🥘 
 
-A Django CRUD app tutorial published on [Dev.to](), [Hackernoon](), and [Medium](). Features include User Authentication, CRUD operations, Markdown Field support, Live deployment to Heroku.
+A Django CRUD app tutorial published on [Dev.to](https://dev.to/vladyslavnua/how-to-build-a-django-web-app-from-scratch-tutorial-5bp0), [Hackernoon](), and [Medium](). Features include User Authentication, CRUD operations, Markdown Field support, Live deployment to Heroku.
 
 [Preview Live](https://foodanic.herokuapp.com/)
 
